@@ -1,4 +1,4 @@
-module github.com/aptible/aptible-api-go/aptibleapi
+module github.com/joshraker/aptible-api-go/aptibleapi
 
 go 1.18
 
