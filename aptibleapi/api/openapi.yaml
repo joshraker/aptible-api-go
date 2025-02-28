@@ -19,6 +19,7 @@ tags:
 - name: CodeScanResults
 - name: Configurations
 - name: Containers
+- name: Dashboards
 - name: DatabaseCredentials
 - name: DatabaseImages
 - name: Databases
@@ -28,9 +29,11 @@ tags:
 - name: EphemeralContainers
 - name: EphemeralSessions
 - name: Images
+- name: Integrations
 - name: IntrusionDetectionReports
 - name: LogDrains
 - name: MetricDrains
+- name: Observations
 - name: Operations
 - name: Permissions
 - name: PersistentDisks
@@ -46,6 +49,7 @@ tags:
 - name: Vhosts
 - name: VpcPeers
 - name: VpnTunnels
+- name: Widgets
 paths:
   /stacks/{stack_id}/accounts:
     get:
@@ -1593,6 +1597,137 @@ paths:
       summary: list containers
       tags:
       - Containers
+  /dashboards:
+    get:
+      operationId: ListDashboards
+      parameters:
+      - description: current page of results for pagination
+        explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/ListDashboards_200_response'
+          description: successful
+        default:
+          content:
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/error'
+          description: Error response. Often a 4xx or 5xx status code
+      summary: list dashboards
+      tags:
+      - Dashboards
+    post:
+      operationId: CreateDashboard
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateDashboard_request'
+      responses:
+        "201":
+          content:
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/dashboard'
+          description: successful
+        default:
+          content:
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/error'
+          description: Error response. Often a 4xx or 5xx status code
+      summary: create dashboard
+      tags:
+      - Dashboards
+  /dashboards/{id}:
+    delete:
+      operationId: DeleteDashboard
+      parameters:
+      - description: id
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      responses:
+        "204":
+          description: successful
+        default:
+          content:
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/error'
+          description: Error response. Often a 4xx or 5xx status code
+      summary: delete dashboard
+      tags:
+      - Dashboards
+    get:
+      operationId: GetDashboard
+      parameters:
+      - description: id
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      responses:
+        "200":
+          content:
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/dashboard'
+          description: successful
+        default:
+          content:
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/error'
+          description: Error response. Often a 4xx or 5xx status code
+      summary: show dashboard
+      tags:
+      - Dashboards
+    put:
+      operationId: UpdateDashboard
+      parameters:
+      - description: id
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateDashboard_request'
+      responses:
+        "200":
+          description: successful
+        default:
+          content:
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/error'
+          description: Error response. Often a 4xx or 5xx status code
+      summary: update dashboard
+      tags:
+      - Dashboards
   /databases/{database_id}/database_credentials:
     get:
       operationId: ListDatabaseCredentialsForDatabase
@@ -2509,6 +2644,127 @@ paths:
       summary: show image
       tags:
       - Images
+  /datadog_integrations:
+    get:
+      operationId: ListDatadogIntegrations
+      parameters:
+      - description: current page of results for pagination
+        explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/ListDatadogIntegrations_200_response'
+          description: successful
+        default:
+          content:
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/error'
+          description: Error response. Often a 4xx or 5xx status code
+      summary: list integrations
+    post:
+      operationId: CreateDatadogIntegration
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateDatadogIntegration_request'
+      responses:
+        "201":
+          content:
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/integration'
+          description: successful
+        default:
+          content:
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/error'
+          description: Error response. Often a 4xx or 5xx status code
+      summary: create integration
+  /datadog_integrations/{id}:
+    delete:
+      operationId: DeleteDatadogIntegration
+      parameters:
+      - description: id
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      responses:
+        "204":
+          description: successful
+        default:
+          content:
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/error'
+          description: Error response. Often a 4xx or 5xx status code
+      summary: delete integration
+    get:
+      operationId: GetDatadogIntegration
+      parameters:
+      - description: id
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      responses:
+        "200":
+          content:
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/integration'
+          description: successful
+        default:
+          content:
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/error'
+          description: Error response. Often a 4xx or 5xx status code
+      summary: show integration
+    put:
+      operationId: UpdateDatadogIntegration
+      parameters:
+      - description: id
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateDashboard_request'
+      responses:
+        "200":
+          description: successful
+        default:
+          content:
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/error'
+          description: Error response. Often a 4xx or 5xx status code
+      summary: update integration
   /stacks/{stack_id}/intrusion_detection_reports:
     get:
       operationId: ListIntrustionDetectionReportsForStack
@@ -2892,6 +3148,102 @@ paths:
       summary: show metric_drain
       tags:
       - MetricDrains
+  /apps/{id}/observations:
+    get:
+      operationId: ListObservationsForApp
+      parameters:
+      - description: id
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      - description: current page of results for pagination
+        explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/ListObservationsForApp_200_response'
+          description: successful
+        default:
+          content:
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/error'
+          description: Error response. Often a 4xx or 5xx status code
+      summary: list observations
+      tags:
+      - Dashboards
+    post:
+      operationId: CreateObservationForDashboard
+      parameters:
+      - description: id
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateObservationForDashboard_request'
+      responses:
+        "201":
+          content:
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/observation'
+          description: successful
+        default:
+          content:
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/error'
+          description: Error response. Often a 4xx or 5xx status code
+      summary: create observation
+      tags:
+      - Dashboards
+  /observations/{id}:
+    get:
+      operationId: ShowObservation
+      parameters:
+      - description: id
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      responses:
+        "200":
+          content:
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/observation'
+          description: successful
+        default:
+          content:
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/error'
+          description: Error response. Often a 4xx or 5xx status code
+      summary: show observation
+      tags:
+      - Dashboards
   /operations/{id}:
     get:
       operationId: GetOperation
@@ -5186,6 +5538,153 @@ paths:
       summary: show vpn_tunnel
       tags:
       - VpnTunnels
+  /dashboards/{id}/widgets:
+    get:
+      operationId: ListWidgetsForDashboard
+      parameters:
+      - description: id
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      - description: current page of results for pagination
+        explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/ListWidgetsForDashboard_200_response'
+          description: successful
+        default:
+          content:
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/error'
+          description: Error response. Often a 4xx or 5xx status code
+      summary: list widgets
+      tags:
+      - Dashboards
+    post:
+      operationId: CreateWidgetForDashboard
+      parameters:
+      - description: id
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateWidgetForDashboard_request'
+      responses:
+        "201":
+          content:
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/widget'
+          description: successful
+        default:
+          content:
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/error'
+          description: Error response. Often a 4xx or 5xx status code
+      summary: create widget
+      tags:
+      - Dashboards
+  /widgets/{id}:
+    delete:
+      operationId: DeleteWidget
+      parameters:
+      - description: id
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      responses:
+        "204":
+          description: successful
+        default:
+          content:
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/error'
+          description: Error response. Often a 4xx or 5xx status code
+      summary: delete widget
+      tags:
+      - Dashboards
+    get:
+      operationId: GetWidget
+      parameters:
+      - description: id
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      responses:
+        "200":
+          content:
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/widget'
+          description: successful
+        default:
+          content:
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/error'
+          description: Error response. Often a 4xx or 5xx status code
+      summary: show widget
+      tags:
+      - Dashboards
+    put:
+      operationId: UpdateWidget
+      parameters:
+      - description: id
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateWidget_request'
+      responses:
+        "200":
+          description: successful
+        default:
+          content:
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/error'
+          description: Error response. Often a 4xx or 5xx status code
+      summary: update widget
+      tags:
+      - Dashboards
 components:
   schemas:
     account:
@@ -5643,6 +6142,54 @@ components:
       - port_mapping
       - status
       - updated_at
+    dashboard:
+      properties:
+        id:
+          format: uuid
+          type: string
+        _type:
+          type: string
+        created_at:
+          format: dateTime
+          type: string
+        updated_at:
+          format: dateTime
+          type: string
+        name:
+          type: string
+        organization_id:
+          format: uuid
+          type: string
+        range_begin:
+          format: dateTime
+          type: string
+        range_end:
+          format: dateTime
+          type: string
+        observation_timestamp:
+          format: dateTime
+          type: string
+        resource_id:
+          type: integer
+        resource_type:
+          type: string
+        data:
+          type: object
+        _links:
+          $ref: '#/components/schemas/configuration__links'
+      required:
+      - _type
+      - created_at
+      - data
+      - id
+      - name
+      - observation_timestamp
+      - organization_id
+      - range_begin
+      - range_end
+      - resource_id
+      - resource_type
+      - updated_at
     database_credential:
       properties:
         id:
@@ -6079,6 +6626,64 @@ components:
       - release
       - scan
       - updated_at
+    integration:
+      properties:
+        id:
+          type: integer
+        _type:
+          type: string
+        created_at:
+          format: dateTime
+          type: string
+        updated_at:
+          format: dateTime
+          type: string
+        type:
+          type: string
+        organization_id:
+          format: uuid
+          type: string
+        aws_role_arn:
+          type: string
+          x-nullable: true
+        api_key:
+          type: string
+          x-nullable: true
+        app_key:
+          type: string
+          x-nullable: true
+        host:
+          type: string
+          x-nullable: true
+        port:
+          type: string
+          x-nullable: true
+        username:
+          type: string
+          x-nullable: true
+        password:
+          type: string
+          x-nullable: true
+        database:
+          type: string
+          x-nullable: true
+        _links:
+          $ref: '#/components/schemas/integration__links'
+      required:
+      - _type
+      - api_key
+      - app_key
+      - aws_role_arn
+      - created_at
+      - database
+      - host
+      - id
+      - organization_id
+      - password
+      - port
+      - type
+      - updated_at
+      - username
     intrusion_detection_report:
       properties:
         id:
@@ -6258,6 +6863,36 @@ components:
       - handle
       - id
       - status
+      - updated_at
+    observation:
+      properties:
+        id:
+          type: integer
+        _type:
+          type: string
+        created_at:
+          format: dateTime
+          type: string
+        updated_at:
+          format: dateTime
+          type: string
+        range_begin:
+          format: dateTime
+          type: string
+        range_end:
+          format: dateTime
+          type: string
+        data:
+          type: object
+        _links:
+          $ref: '#/components/schemas/configuration__links'
+      required:
+      - _type
+      - created_at
+      - data
+      - id
+      - range_begin
+      - range_end
       - updated_at
     operation:
       properties:
@@ -6469,7 +7104,7 @@ components:
           format: dateTime
           type: string
         _links:
-          $ref: '#/components/schemas/plan__links'
+          $ref: '#/components/schemas/integration__links'
       required:
       - _type
       - compliance_dashboard_access
@@ -7078,6 +7713,49 @@ components:
       - phase_2_dh_group
       - phase_2_lifetime
       - updated_at
+    widget:
+      properties:
+        id:
+          format: uuid
+          type: string
+        _type:
+          type: string
+        created_at:
+          format: dateTime
+          type: string
+        updated_at:
+          format: dateTime
+          type: string
+        title:
+          type: string
+        summary:
+          type: string
+        rating:
+          type: integer
+        widget_type:
+          type: string
+        data:
+          type: object
+        range_begin:
+          format: dateTime
+          type: string
+        range_end:
+          format: dateTime
+          type: string
+        _links:
+          $ref: '#/components/schemas/widget__links'
+      required:
+      - _type
+      - created_at
+      - data
+      - id
+      - range_begin
+      - range_end
+      - rating
+      - summary
+      - title
+      - updated_at
+      - widget_type
     error:
       properties:
         code:
@@ -7527,6 +8205,68 @@ components:
       - per_page
       - total_count
       type: object
+    ListDashboards_200_response__embedded:
+      properties:
+        dashboards:
+          items:
+            $ref: '#/components/schemas/dashboard'
+          type: array
+      type: object
+    ListDashboards_200_response__links:
+      properties:
+        next:
+          $ref: '#/components/schemas/ListAccountsForStack_200_response__links_stack'
+        prev:
+          $ref: '#/components/schemas/ListAccountsForStack_200_response__links_stack'
+        self:
+          $ref: '#/components/schemas/ListAccountsForStack_200_response__links_stack'
+      type: object
+    ListDashboards_200_response:
+      properties:
+        _embedded:
+          $ref: '#/components/schemas/ListDashboards_200_response__embedded'
+        total_count:
+          type: integer
+        per_page:
+          type: integer
+        current_page:
+          type: integer
+        _links:
+          $ref: '#/components/schemas/ListDashboards_200_response__links'
+      required:
+      - _embedded
+      - _links
+      - current_page
+      - per_page
+      - total_count
+      type: object
+    CreateDashboard_request:
+      properties:
+        organization_id:
+          type: string
+        resource_id:
+          type: integer
+        resource_type:
+          type: string
+        name:
+          type: string
+        observation_timestamp:
+          type: string
+        range_begin:
+          type: string
+        range_end:
+          type: string
+      required:
+      - name
+      - organization_id
+      - resource_id
+      - resource_type
+      type: object
+    UpdateDashboard_request:
+      properties:
+        name:
+          type: string
+      type: object
     ListDatabaseCredentialsForDatabase_200_response__embedded:
       properties:
         database_credentials:
@@ -7571,15 +8311,6 @@ components:
             $ref: '#/components/schemas/database_image'
           type: array
       type: object
-    ListDatabaseImages_200_response__links:
-      properties:
-        next:
-          $ref: '#/components/schemas/ListAccountsForStack_200_response__links_stack'
-        prev:
-          $ref: '#/components/schemas/ListAccountsForStack_200_response__links_stack'
-        self:
-          $ref: '#/components/schemas/ListAccountsForStack_200_response__links_stack'
-      type: object
     ListDatabaseImages_200_response:
       properties:
         _embedded:
@@ -7591,7 +8322,7 @@ components:
         current_page:
           type: integer
         _links:
-          $ref: '#/components/schemas/ListDatabaseImages_200_response__links'
+          $ref: '#/components/schemas/ListDashboards_200_response__links'
       required:
       - _embedded
       - _links
@@ -7951,6 +8682,59 @@ components:
       - per_page
       - total_count
       type: object
+    ListDatadogIntegrations_200_response__embedded:
+      properties:
+        integrations:
+          items:
+            $ref: '#/components/schemas/integration'
+          type: array
+      type: object
+    ListDatadogIntegrations_200_response:
+      properties:
+        _embedded:
+          $ref: '#/components/schemas/ListDatadogIntegrations_200_response__embedded'
+        total_count:
+          type: integer
+        per_page:
+          type: integer
+        current_page:
+          type: integer
+        _links:
+          $ref: '#/components/schemas/ListDashboards_200_response__links'
+      required:
+      - _embedded
+      - _links
+      - current_page
+      - per_page
+      - total_count
+      type: object
+    CreateDatadogIntegration_request:
+      properties:
+        type:
+          type: string
+        organization_id:
+          format: uuid
+          type: string
+        aws_role_arn:
+          type: string
+        api_key:
+          type: string
+        app_key:
+          type: string
+        host:
+          type: string
+        port:
+          type: string
+        username:
+          type: string
+        password:
+          type: string
+        database:
+          type: string
+      required:
+      - organization_id
+      - type
+      type: object
     ListIntrustionDetectionReportsForStack_200_response__embedded:
       properties:
         intrusion_detection_reports:
@@ -8135,6 +8919,47 @@ components:
       - drain_type
       - handle
       type: object
+    ListObservationsForApp_200_response__embedded:
+      properties:
+        observations:
+          items:
+            $ref: '#/components/schemas/observation'
+          type: array
+      type: object
+    ListObservationsForApp_200_response:
+      properties:
+        _embedded:
+          $ref: '#/components/schemas/ListObservationsForApp_200_response__embedded'
+        total_count:
+          type: integer
+        per_page:
+          type: integer
+        current_page:
+          type: integer
+        _links:
+          $ref: '#/components/schemas/ListImagesForApp_200_response__links'
+      required:
+      - _embedded
+      - _links
+      - current_page
+      - per_page
+      - total_count
+      type: object
+    CreateObservationForDashboard_request:
+      properties:
+        range_begin:
+          format: dateTime
+          type: string
+        range_end:
+          format: dateTime
+          type: string
+        data:
+          type: object
+      required:
+      - data
+      - range_begin
+      - range_end
+      type: object
     UpdateOperation_request:
       properties:
         cancelled:
@@ -8159,7 +8984,7 @@ components:
         current_page:
           type: integer
         _links:
-          $ref: '#/components/schemas/ListDatabaseImages_200_response__links'
+          $ref: '#/components/schemas/ListDashboards_200_response__links'
       required:
       - _embedded
       - _links
@@ -8179,7 +9004,8 @@ components:
         private_key: private_key
         instance_profile: instance_profile
         type: type
-        env: "{}"
+        env:
+          key: env
         docker_ref: docker_ref
         container_count: 6
         command: command
@@ -8203,6 +9029,8 @@ components:
         command:
           type: string
         env:
+          additionalProperties:
+            type: string
           type: object
         handle:
           type: string
@@ -8324,7 +9152,7 @@ components:
         current_page:
           type: integer
         _links:
-          $ref: '#/components/schemas/ListDatabaseImages_200_response__links'
+          $ref: '#/components/schemas/ListDashboards_200_response__links'
       required:
       - _embedded
       - _links
@@ -8528,7 +9356,7 @@ components:
         current_page:
           type: integer
         _links:
-          $ref: '#/components/schemas/ListDatabaseImages_200_response__links'
+          $ref: '#/components/schemas/ListDashboards_200_response__links'
       required:
       - _embedded
       - _links
@@ -8603,7 +9431,7 @@ components:
         current_page:
           type: integer
         _links:
-          $ref: '#/components/schemas/ListDatabaseImages_200_response__links'
+          $ref: '#/components/schemas/ListDashboards_200_response__links'
       required:
       - _embedded
       - _links
@@ -8638,7 +9466,7 @@ components:
         current_page:
           type: integer
         _links:
-          $ref: '#/components/schemas/ListDatabaseImages_200_response__links'
+          $ref: '#/components/schemas/ListDashboards_200_response__links'
       required:
       - _embedded
       - _links
@@ -8719,7 +9547,6 @@ components:
             type: integer
           type: array
       required:
-      - certificate
       - type
       type: object
     UpdateVhost_request:
@@ -8792,6 +9619,91 @@ components:
       - current_page
       - per_page
       - total_count
+      type: object
+    ListWidgetsForDashboard_200_response__embedded:
+      properties:
+        widgets:
+          items:
+            $ref: '#/components/schemas/widget'
+          type: array
+      type: object
+    ListWidgetsForDashboard_200_response__links:
+      properties:
+        dashboard:
+          $ref: '#/components/schemas/ListAccountsForStack_200_response__links_stack'
+        next:
+          $ref: '#/components/schemas/ListAccountsForStack_200_response__links_stack'
+        prev:
+          $ref: '#/components/schemas/ListAccountsForStack_200_response__links_stack'
+        self:
+          $ref: '#/components/schemas/ListAccountsForStack_200_response__links_stack'
+      type: object
+    ListWidgetsForDashboard_200_response:
+      properties:
+        _embedded:
+          $ref: '#/components/schemas/ListWidgetsForDashboard_200_response__embedded'
+        total_count:
+          type: integer
+        per_page:
+          type: integer
+        current_page:
+          type: integer
+        _links:
+          $ref: '#/components/schemas/ListWidgetsForDashboard_200_response__links'
+      required:
+      - _embedded
+      - _links
+      - current_page
+      - per_page
+      - total_count
+      type: object
+    CreateWidgetForDashboard_request:
+      properties:
+        resource_id:
+          type: integer
+        resource_type:
+          type: string
+        title:
+          type: string
+        summary:
+          type: string
+        rating:
+          type: integer
+        widget_type:
+          type: string
+        data:
+          type: object
+        range_begin:
+          format: dateTime
+          type: string
+        range_end:
+          format: dateTime
+          type: string
+      required:
+      - data
+      - range_begin
+      - range_end
+      - rating
+      - resource_id
+      - resource_type
+      - summary
+      - title
+      - widget_type
+      type: object
+    UpdateWidget_request:
+      properties:
+        title:
+          type: string
+        summary:
+          type: string
+        rating:
+          type: integer
+        widget_type:
+          type: string
+        data:
+          additionalProperties:
+            type: string
+          type: object
       type: object
     account__embedded:
       properties:
@@ -9096,6 +10008,11 @@ components:
         self:
           $ref: '#/components/schemas/ListAccountsForStack_200_response__links_stack'
       type: object
+    integration__links:
+      properties:
+        self:
+          $ref: '#/components/schemas/ListAccountsForStack_200_response__links_stack'
+      type: object
     intrusion_detection_report__links:
       properties:
         stack:
@@ -9191,11 +10108,6 @@ components:
         self:
           $ref: '#/components/schemas/ListAccountsForStack_200_response__links_stack'
       type: object
-    plan__links:
-      properties:
-        self:
-          $ref: '#/components/schemas/ListAccountsForStack_200_response__links_stack'
-      type: object
     prerelease_command__links:
       properties:
         app:
@@ -9264,11 +10176,6 @@ components:
         self:
           $ref: '#/components/schemas/ListAccountsForStack_200_response__links_stack'
       type: object
-    vhost_acme_configuration_challenges_inner_from:
-      properties:
-        name:
-          type: string
-      type: object
     vhost_acme_configuration_challenges_inner_to_inner:
       properties:
         name:
@@ -9284,7 +10191,7 @@ components:
           - dns01
           type: string
         from:
-          $ref: '#/components/schemas/vhost_acme_configuration_challenges_inner_from'
+          $ref: '#/components/schemas/UpdateDashboard_request'
         to:
           items:
             $ref: '#/components/schemas/vhost_acme_configuration_challenges_inner_to_inner'
@@ -9316,6 +10223,15 @@ components:
     vpc_peer__links:
       properties:
         stack:
+          $ref: '#/components/schemas/ListAccountsForStack_200_response__links_stack'
+        self:
+          $ref: '#/components/schemas/ListAccountsForStack_200_response__links_stack'
+      type: object
+    widget__links:
+      properties:
+        dashboard:
+          $ref: '#/components/schemas/ListAccountsForStack_200_response__links_stack'
+        resource:
           $ref: '#/components/schemas/ListAccountsForStack_200_response__links_stack'
         self:
           $ref: '#/components/schemas/ListAccountsForStack_200_response__links_stack'

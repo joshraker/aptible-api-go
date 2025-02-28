@@ -36,7 +36,7 @@ import (
 
 func main() {
 	serviceId := int32(56) // int32 | service_id
-	createVhostRequest := *openapiclient.NewCreateVhostRequest("Type_example", int32(123)) // CreateVhostRequest |  (optional)
+	createVhostRequest := *openapiclient.NewCreateVhostRequest("Type_example") // CreateVhostRequest |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

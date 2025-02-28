@@ -14,38 +14,38 @@ import (
 	"encoding/json"
 )
 
-// checks if the ListDatabaseImages200ResponseLinks type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &ListDatabaseImages200ResponseLinks{}
+// checks if the ListDashboards200ResponseLinks type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ListDashboards200ResponseLinks{}
 
-// ListDatabaseImages200ResponseLinks struct for ListDatabaseImages200ResponseLinks
-type ListDatabaseImages200ResponseLinks struct {
+// ListDashboards200ResponseLinks struct for ListDashboards200ResponseLinks
+type ListDashboards200ResponseLinks struct {
 	Next *ListAccountsForStack200ResponseLinksStack `json:"next,omitempty"`
 	Prev *ListAccountsForStack200ResponseLinksStack `json:"prev,omitempty"`
 	Self *ListAccountsForStack200ResponseLinksStack `json:"self,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
-type _ListDatabaseImages200ResponseLinks ListDatabaseImages200ResponseLinks
+type _ListDashboards200ResponseLinks ListDashboards200ResponseLinks
 
-// NewListDatabaseImages200ResponseLinks instantiates a new ListDatabaseImages200ResponseLinks object
+// NewListDashboards200ResponseLinks instantiates a new ListDashboards200ResponseLinks object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewListDatabaseImages200ResponseLinks() *ListDatabaseImages200ResponseLinks {
-	this := ListDatabaseImages200ResponseLinks{}
+func NewListDashboards200ResponseLinks() *ListDashboards200ResponseLinks {
+	this := ListDashboards200ResponseLinks{}
 	return &this
 }
 
-// NewListDatabaseImages200ResponseLinksWithDefaults instantiates a new ListDatabaseImages200ResponseLinks object
+// NewListDashboards200ResponseLinksWithDefaults instantiates a new ListDashboards200ResponseLinks object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewListDatabaseImages200ResponseLinksWithDefaults() *ListDatabaseImages200ResponseLinks {
-	this := ListDatabaseImages200ResponseLinks{}
+func NewListDashboards200ResponseLinksWithDefaults() *ListDashboards200ResponseLinks {
+	this := ListDashboards200ResponseLinks{}
 	return &this
 }
 
 // GetNext returns the Next field value if set, zero value otherwise.
-func (o *ListDatabaseImages200ResponseLinks) GetNext() ListAccountsForStack200ResponseLinksStack {
+func (o *ListDashboards200ResponseLinks) GetNext() ListAccountsForStack200ResponseLinksStack {
 	if o == nil || IsNil(o.Next) {
 		var ret ListAccountsForStack200ResponseLinksStack
 		return ret
@@ -55,7 +55,7 @@ func (o *ListDatabaseImages200ResponseLinks) GetNext() ListAccountsForStack200Re
 
 // GetNextOk returns a tuple with the Next field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ListDatabaseImages200ResponseLinks) GetNextOk() (*ListAccountsForStack200ResponseLinksStack, bool) {
+func (o *ListDashboards200ResponseLinks) GetNextOk() (*ListAccountsForStack200ResponseLinksStack, bool) {
 	if o == nil || IsNil(o.Next) {
 		return nil, false
 	}
@@ -63,7 +63,7 @@ func (o *ListDatabaseImages200ResponseLinks) GetNextOk() (*ListAccountsForStack2
 }
 
 // HasNext returns a boolean if a field has been set.
-func (o *ListDatabaseImages200ResponseLinks) HasNext() bool {
+func (o *ListDashboards200ResponseLinks) HasNext() bool {
 	if o != nil && !IsNil(o.Next) {
 		return true
 	}
@@ -72,12 +72,12 @@ func (o *ListDatabaseImages200ResponseLinks) HasNext() bool {
 }
 
 // SetNext gets a reference to the given ListAccountsForStack200ResponseLinksStack and assigns it to the Next field.
-func (o *ListDatabaseImages200ResponseLinks) SetNext(v ListAccountsForStack200ResponseLinksStack) {
+func (o *ListDashboards200ResponseLinks) SetNext(v ListAccountsForStack200ResponseLinksStack) {
 	o.Next = &v
 }
 
 // GetPrev returns the Prev field value if set, zero value otherwise.
-func (o *ListDatabaseImages200ResponseLinks) GetPrev() ListAccountsForStack200ResponseLinksStack {
+func (o *ListDashboards200ResponseLinks) GetPrev() ListAccountsForStack200ResponseLinksStack {
 	if o == nil || IsNil(o.Prev) {
 		var ret ListAccountsForStack200ResponseLinksStack
 		return ret
@@ -87,7 +87,7 @@ func (o *ListDatabaseImages200ResponseLinks) GetPrev() ListAccountsForStack200Re
 
 // GetPrevOk returns a tuple with the Prev field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ListDatabaseImages200ResponseLinks) GetPrevOk() (*ListAccountsForStack200ResponseLinksStack, bool) {
+func (o *ListDashboards200ResponseLinks) GetPrevOk() (*ListAccountsForStack200ResponseLinksStack, bool) {
 	if o == nil || IsNil(o.Prev) {
 		return nil, false
 	}
@@ -95,7 +95,7 @@ func (o *ListDatabaseImages200ResponseLinks) GetPrevOk() (*ListAccountsForStack2
 }
 
 // HasPrev returns a boolean if a field has been set.
-func (o *ListDatabaseImages200ResponseLinks) HasPrev() bool {
+func (o *ListDashboards200ResponseLinks) HasPrev() bool {
 	if o != nil && !IsNil(o.Prev) {
 		return true
 	}
@@ -104,12 +104,12 @@ func (o *ListDatabaseImages200ResponseLinks) HasPrev() bool {
 }
 
 // SetPrev gets a reference to the given ListAccountsForStack200ResponseLinksStack and assigns it to the Prev field.
-func (o *ListDatabaseImages200ResponseLinks) SetPrev(v ListAccountsForStack200ResponseLinksStack) {
+func (o *ListDashboards200ResponseLinks) SetPrev(v ListAccountsForStack200ResponseLinksStack) {
 	o.Prev = &v
 }
 
 // GetSelf returns the Self field value if set, zero value otherwise.
-func (o *ListDatabaseImages200ResponseLinks) GetSelf() ListAccountsForStack200ResponseLinksStack {
+func (o *ListDashboards200ResponseLinks) GetSelf() ListAccountsForStack200ResponseLinksStack {
 	if o == nil || IsNil(o.Self) {
 		var ret ListAccountsForStack200ResponseLinksStack
 		return ret
@@ -119,7 +119,7 @@ func (o *ListDatabaseImages200ResponseLinks) GetSelf() ListAccountsForStack200Re
 
 // GetSelfOk returns a tuple with the Self field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ListDatabaseImages200ResponseLinks) GetSelfOk() (*ListAccountsForStack200ResponseLinksStack, bool) {
+func (o *ListDashboards200ResponseLinks) GetSelfOk() (*ListAccountsForStack200ResponseLinksStack, bool) {
 	if o == nil || IsNil(o.Self) {
 		return nil, false
 	}
@@ -127,7 +127,7 @@ func (o *ListDatabaseImages200ResponseLinks) GetSelfOk() (*ListAccountsForStack2
 }
 
 // HasSelf returns a boolean if a field has been set.
-func (o *ListDatabaseImages200ResponseLinks) HasSelf() bool {
+func (o *ListDashboards200ResponseLinks) HasSelf() bool {
 	if o != nil && !IsNil(o.Self) {
 		return true
 	}
@@ -136,11 +136,11 @@ func (o *ListDatabaseImages200ResponseLinks) HasSelf() bool {
 }
 
 // SetSelf gets a reference to the given ListAccountsForStack200ResponseLinksStack and assigns it to the Self field.
-func (o *ListDatabaseImages200ResponseLinks) SetSelf(v ListAccountsForStack200ResponseLinksStack) {
+func (o *ListDashboards200ResponseLinks) SetSelf(v ListAccountsForStack200ResponseLinksStack) {
 	o.Self = &v
 }
 
-func (o ListDatabaseImages200ResponseLinks) MarshalJSON() ([]byte, error) {
+func (o ListDashboards200ResponseLinks) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -148,7 +148,7 @@ func (o ListDatabaseImages200ResponseLinks) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o ListDatabaseImages200ResponseLinks) ToMap() (map[string]interface{}, error) {
+func (o ListDashboards200ResponseLinks) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.Next) {
 		toSerialize["next"] = o.Next
@@ -167,16 +167,16 @@ func (o ListDatabaseImages200ResponseLinks) ToMap() (map[string]interface{}, err
 	return toSerialize, nil
 }
 
-func (o *ListDatabaseImages200ResponseLinks) UnmarshalJSON(data []byte) (err error) {
-	varListDatabaseImages200ResponseLinks := _ListDatabaseImages200ResponseLinks{}
+func (o *ListDashboards200ResponseLinks) UnmarshalJSON(data []byte) (err error) {
+	varListDashboards200ResponseLinks := _ListDashboards200ResponseLinks{}
 
-	err = json.Unmarshal(data, &varListDatabaseImages200ResponseLinks)
+	err = json.Unmarshal(data, &varListDashboards200ResponseLinks)
 
 	if err != nil {
 		return err
 	}
 
-	*o = ListDatabaseImages200ResponseLinks(varListDatabaseImages200ResponseLinks)
+	*o = ListDashboards200ResponseLinks(varListDashboards200ResponseLinks)
 
 	additionalProperties := make(map[string]interface{})
 
@@ -190,38 +190,38 @@ func (o *ListDatabaseImages200ResponseLinks) UnmarshalJSON(data []byte) (err err
 	return err
 }
 
-type NullableListDatabaseImages200ResponseLinks struct {
-	value *ListDatabaseImages200ResponseLinks
+type NullableListDashboards200ResponseLinks struct {
+	value *ListDashboards200ResponseLinks
 	isSet bool
 }
 
-func (v NullableListDatabaseImages200ResponseLinks) Get() *ListDatabaseImages200ResponseLinks {
+func (v NullableListDashboards200ResponseLinks) Get() *ListDashboards200ResponseLinks {
 	return v.value
 }
 
-func (v *NullableListDatabaseImages200ResponseLinks) Set(val *ListDatabaseImages200ResponseLinks) {
+func (v *NullableListDashboards200ResponseLinks) Set(val *ListDashboards200ResponseLinks) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableListDatabaseImages200ResponseLinks) IsSet() bool {
+func (v NullableListDashboards200ResponseLinks) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableListDatabaseImages200ResponseLinks) Unset() {
+func (v *NullableListDashboards200ResponseLinks) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableListDatabaseImages200ResponseLinks(val *ListDatabaseImages200ResponseLinks) *NullableListDatabaseImages200ResponseLinks {
-	return &NullableListDatabaseImages200ResponseLinks{value: val, isSet: true}
+func NewNullableListDashboards200ResponseLinks(val *ListDashboards200ResponseLinks) *NullableListDashboards200ResponseLinks {
+	return &NullableListDashboards200ResponseLinks{value: val, isSet: true}
 }
 
-func (v NullableListDatabaseImages200ResponseLinks) MarshalJSON() ([]byte, error) {
+func (v NullableListDashboards200ResponseLinks) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableListDatabaseImages200ResponseLinks) UnmarshalJSON(src []byte) error {
+func (v *NullableListDashboards200ResponseLinks) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

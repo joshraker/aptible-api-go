@@ -211,13 +211,13 @@ func (a *BackupsAPIService) ListBackupsExecute(r ApiListBackupsRequest) (*ListBa
 	localVarFormParams := url.Values{}
 
 	if r.page != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "page", r.page, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "page", r.page, "form", "")
 	}
 	if r.perPage != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "per_page", r.perPage, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "per_page", r.perPage, "form", "")
 	}
 	if r.withDeleted != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "with_deleted", r.withDeleted, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "with_deleted", r.withDeleted, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -364,13 +364,13 @@ func (a *BackupsAPIService) ListBackupsForAccountExecute(r ApiListBackupsForAcco
 	localVarFormParams := url.Values{}
 
 	if r.page != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "page", r.page, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "page", r.page, "form", "")
 	}
 	if r.perPage != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "per_page", r.perPage, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "per_page", r.perPage, "form", "")
 	}
 	if r.withDeleted != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "with_deleted", r.withDeleted, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "with_deleted", r.withDeleted, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -517,13 +517,13 @@ func (a *BackupsAPIService) ListBackupsForDatabaseExecute(r ApiListBackupsForDat
 	localVarFormParams := url.Values{}
 
 	if r.page != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "page", r.page, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "page", r.page, "form", "")
 	}
 	if r.perPage != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "per_page", r.perPage, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "per_page", r.perPage, "form", "")
 	}
 	if r.withDeleted != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "with_deleted", r.withDeleted, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "with_deleted", r.withDeleted, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -670,13 +670,13 @@ func (a *BackupsAPIService) ListCopiesForBackupExecute(r ApiListCopiesForBackupR
 	localVarFormParams := url.Values{}
 
 	if r.page != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "page", r.page, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "page", r.page, "form", "")
 	}
 	if r.perPage != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "per_page", r.perPage, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "per_page", r.perPage, "form", "")
 	}
 	if r.withDeleted != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "with_deleted", r.withDeleted, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "with_deleted", r.withDeleted, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

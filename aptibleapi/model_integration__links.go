@@ -14,36 +14,36 @@ import (
 	"encoding/json"
 )
 
-// checks if the PlanLinks type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &PlanLinks{}
+// checks if the IntegrationLinks type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &IntegrationLinks{}
 
-// PlanLinks struct for PlanLinks
-type PlanLinks struct {
+// IntegrationLinks struct for IntegrationLinks
+type IntegrationLinks struct {
 	Self *ListAccountsForStack200ResponseLinksStack `json:"self,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
-type _PlanLinks PlanLinks
+type _IntegrationLinks IntegrationLinks
 
-// NewPlanLinks instantiates a new PlanLinks object
+// NewIntegrationLinks instantiates a new IntegrationLinks object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPlanLinks() *PlanLinks {
-	this := PlanLinks{}
+func NewIntegrationLinks() *IntegrationLinks {
+	this := IntegrationLinks{}
 	return &this
 }
 
-// NewPlanLinksWithDefaults instantiates a new PlanLinks object
+// NewIntegrationLinksWithDefaults instantiates a new IntegrationLinks object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewPlanLinksWithDefaults() *PlanLinks {
-	this := PlanLinks{}
+func NewIntegrationLinksWithDefaults() *IntegrationLinks {
+	this := IntegrationLinks{}
 	return &this
 }
 
 // GetSelf returns the Self field value if set, zero value otherwise.
-func (o *PlanLinks) GetSelf() ListAccountsForStack200ResponseLinksStack {
+func (o *IntegrationLinks) GetSelf() ListAccountsForStack200ResponseLinksStack {
 	if o == nil || IsNil(o.Self) {
 		var ret ListAccountsForStack200ResponseLinksStack
 		return ret
@@ -53,7 +53,7 @@ func (o *PlanLinks) GetSelf() ListAccountsForStack200ResponseLinksStack {
 
 // GetSelfOk returns a tuple with the Self field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PlanLinks) GetSelfOk() (*ListAccountsForStack200ResponseLinksStack, bool) {
+func (o *IntegrationLinks) GetSelfOk() (*ListAccountsForStack200ResponseLinksStack, bool) {
 	if o == nil || IsNil(o.Self) {
 		return nil, false
 	}
@@ -61,7 +61,7 @@ func (o *PlanLinks) GetSelfOk() (*ListAccountsForStack200ResponseLinksStack, boo
 }
 
 // HasSelf returns a boolean if a field has been set.
-func (o *PlanLinks) HasSelf() bool {
+func (o *IntegrationLinks) HasSelf() bool {
 	if o != nil && !IsNil(o.Self) {
 		return true
 	}
@@ -70,11 +70,11 @@ func (o *PlanLinks) HasSelf() bool {
 }
 
 // SetSelf gets a reference to the given ListAccountsForStack200ResponseLinksStack and assigns it to the Self field.
-func (o *PlanLinks) SetSelf(v ListAccountsForStack200ResponseLinksStack) {
+func (o *IntegrationLinks) SetSelf(v ListAccountsForStack200ResponseLinksStack) {
 	o.Self = &v
 }
 
-func (o PlanLinks) MarshalJSON() ([]byte, error) {
+func (o IntegrationLinks) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -82,7 +82,7 @@ func (o PlanLinks) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o PlanLinks) ToMap() (map[string]interface{}, error) {
+func (o IntegrationLinks) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.Self) {
 		toSerialize["self"] = o.Self
@@ -95,16 +95,16 @@ func (o PlanLinks) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
-func (o *PlanLinks) UnmarshalJSON(data []byte) (err error) {
-	varPlanLinks := _PlanLinks{}
+func (o *IntegrationLinks) UnmarshalJSON(data []byte) (err error) {
+	varIntegrationLinks := _IntegrationLinks{}
 
-	err = json.Unmarshal(data, &varPlanLinks)
+	err = json.Unmarshal(data, &varIntegrationLinks)
 
 	if err != nil {
 		return err
 	}
 
-	*o = PlanLinks(varPlanLinks)
+	*o = IntegrationLinks(varIntegrationLinks)
 
 	additionalProperties := make(map[string]interface{})
 
@@ -116,38 +116,38 @@ func (o *PlanLinks) UnmarshalJSON(data []byte) (err error) {
 	return err
 }
 
-type NullablePlanLinks struct {
-	value *PlanLinks
+type NullableIntegrationLinks struct {
+	value *IntegrationLinks
 	isSet bool
 }
 
-func (v NullablePlanLinks) Get() *PlanLinks {
+func (v NullableIntegrationLinks) Get() *IntegrationLinks {
 	return v.value
 }
 
-func (v *NullablePlanLinks) Set(val *PlanLinks) {
+func (v *NullableIntegrationLinks) Set(val *IntegrationLinks) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullablePlanLinks) IsSet() bool {
+func (v NullableIntegrationLinks) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullablePlanLinks) Unset() {
+func (v *NullableIntegrationLinks) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullablePlanLinks(val *PlanLinks) *NullablePlanLinks {
-	return &NullablePlanLinks{value: val, isSet: true}
+func NewNullableIntegrationLinks(val *IntegrationLinks) *NullableIntegrationLinks {
+	return &NullableIntegrationLinks{value: val, isSet: true}
 }
 
-func (v NullablePlanLinks) MarshalJSON() ([]byte, error) {
+func (v NullableIntegrationLinks) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullablePlanLinks) UnmarshalJSON(src []byte) error {
+func (v *NullableIntegrationLinks) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
