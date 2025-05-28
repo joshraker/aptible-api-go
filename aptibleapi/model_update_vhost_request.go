@@ -25,6 +25,8 @@ type UpdateVhostRequest struct {
 	ContainerPort *int32 `json:"container_port,omitempty"`
 	ContainerPorts []int32 `json:"container_ports,omitempty"`
 	IpWhitelist []string `json:"ip_whitelist,omitempty"`
+	SharedFingerprint *string `json:"shared_fingerprint,omitempty"`
+	Shared *bool `json:"shared,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -239,6 +241,70 @@ func (o *UpdateVhostRequest) SetIpWhitelist(v []string) {
 	o.IpWhitelist = v
 }
 
+// GetSharedFingerprint returns the SharedFingerprint field value if set, zero value otherwise.
+func (o *UpdateVhostRequest) GetSharedFingerprint() string {
+	if o == nil || IsNil(o.SharedFingerprint) {
+		var ret string
+		return ret
+	}
+	return *o.SharedFingerprint
+}
+
+// GetSharedFingerprintOk returns a tuple with the SharedFingerprint field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UpdateVhostRequest) GetSharedFingerprintOk() (*string, bool) {
+	if o == nil || IsNil(o.SharedFingerprint) {
+		return nil, false
+	}
+	return o.SharedFingerprint, true
+}
+
+// HasSharedFingerprint returns a boolean if a field has been set.
+func (o *UpdateVhostRequest) HasSharedFingerprint() bool {
+	if o != nil && !IsNil(o.SharedFingerprint) {
+		return true
+	}
+
+	return false
+}
+
+// SetSharedFingerprint gets a reference to the given string and assigns it to the SharedFingerprint field.
+func (o *UpdateVhostRequest) SetSharedFingerprint(v string) {
+	o.SharedFingerprint = &v
+}
+
+// GetShared returns the Shared field value if set, zero value otherwise.
+func (o *UpdateVhostRequest) GetShared() bool {
+	if o == nil || IsNil(o.Shared) {
+		var ret bool
+		return ret
+	}
+	return *o.Shared
+}
+
+// GetSharedOk returns a tuple with the Shared field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UpdateVhostRequest) GetSharedOk() (*bool, bool) {
+	if o == nil || IsNil(o.Shared) {
+		return nil, false
+	}
+	return o.Shared, true
+}
+
+// HasShared returns a boolean if a field has been set.
+func (o *UpdateVhostRequest) HasShared() bool {
+	if o != nil && !IsNil(o.Shared) {
+		return true
+	}
+
+	return false
+}
+
+// SetShared gets a reference to the given bool and assigns it to the Shared field.
+func (o *UpdateVhostRequest) SetShared(v bool) {
+	o.Shared = &v
+}
+
 func (o UpdateVhostRequest) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -266,6 +332,12 @@ func (o UpdateVhostRequest) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.IpWhitelist) {
 		toSerialize["ip_whitelist"] = o.IpWhitelist
+	}
+	if !IsNil(o.SharedFingerprint) {
+		toSerialize["shared_fingerprint"] = o.SharedFingerprint
+	}
+	if !IsNil(o.Shared) {
+		toSerialize["shared"] = o.Shared
 	}
 
 	for key, value := range o.AdditionalProperties {
@@ -295,6 +367,8 @@ func (o *UpdateVhostRequest) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "container_port")
 		delete(additionalProperties, "container_ports")
 		delete(additionalProperties, "ip_whitelist")
+		delete(additionalProperties, "shared_fingerprint")
+		delete(additionalProperties, "shared")
 		o.AdditionalProperties = additionalProperties
 	}
 
